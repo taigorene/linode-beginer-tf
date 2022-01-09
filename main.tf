@@ -48,6 +48,9 @@ resource "linode_domain_record" "example_domain_record" {
   record_type = "A"
   target = linode_instance.example_instance.ip_address
   ttl_sec = 300
+
+  depends_on = [ linode_instance.example_instance ]
+
 }
 
 # firewall
@@ -66,4 +69,6 @@ resource "linode_firewall" "example_firewall" {
   outbound_policy = "ACCEPT"
 
   linodes = [ linode_instance.example_instance.id ]
+
+  depends_on = [ linode_instance.example_instance ]
 }
