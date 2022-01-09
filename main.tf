@@ -57,7 +57,7 @@ resource "linode_firewall" "example_firewall" {
     label = "allow-http"
     action = "ACCEPT"
     protocol = "TCP"
-    ports = "80"
+    ports = "80,22"
     ipv4 = ["0.0.0.0/0"]
     ipv6 = ["ff00::/8"]
   }
